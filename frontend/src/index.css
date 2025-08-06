@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'WestGate';
+  src: url('/fonts/WestGate.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body{
+  font-family:  "F.",'WestGate', 'Raleway', sans-serif;
+}
+
+@font-face{
+    font-family: "F.";
+    src: url("/fonts/781bc78d102a85d51a4e41734c2fe072.woff2") format("woff2");
+    font-weight: normal;
+    font-style:normal;
+    font-display:swap;
+}
+#containers{
+  font-family: "DrukWide";
+}
+
+@font-face {
+  font-family: 'DrukWide';
+  src: url(/fonts/DrukWide.otf) format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
