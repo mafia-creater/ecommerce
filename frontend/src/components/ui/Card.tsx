@@ -1,6 +1,18 @@
 import { useState } from "react";
 
-const ProductCard = () => {
+interface Product {
+  name: string;
+  price: number;
+  originalPrice?: number;
+  front: string;
+  back: string;
+}
+
+interface ProductCardProps {
+  product: Product;
+}
+
+const ProductCard = ({ product }: ProductCardProps) => {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -13,16 +25,16 @@ const ProductCard = () => {
       <div className="relative w-full h-96 overflow-hidden rounded-md">
         {/* Front Image */}
         <img
-          src="/images/phantom-front.webp"
-          alt="Phantom Web Hoodie Front"
+          src={product.front}
+          alt={product.name + " Front"}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
             hovered ? "opacity-0" : "opacity-100"
           }`}
         />
         {/* Back Image */}
         <img
-          src="/images/phantom-back.webp"
-          alt="Phantom Web Hoodie Back"
+          src={product.back}
+          alt={product.name + " Back"}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
             hovered ? "opacity-100" : "opacity-0"
           }`}
@@ -32,9 +44,16 @@ const ProductCard = () => {
       {/* Product Info */}
       <div className="mt-4 text-center">
         <p className="font-mono text-sm uppercase tracking-widest">
-          PHANTOM WEB HOODIE (PREORDER: SHIPS AUGUST 18)
+          {product.name}
         </p>
-        <p className="font-mono mt-1">$100</p>
+        {product.originalPrice ? (
+          <p className="font-mono mt-1">
+            <span className="line-through mr-1">${product.originalPrice}</span>
+            <span className="text-red-500">${product.price}</span>
+          </p>
+        ) : (
+          <p className="font-mono mt-1">${product.price}</p>
+        )}
       </div>
     </div>
   );
