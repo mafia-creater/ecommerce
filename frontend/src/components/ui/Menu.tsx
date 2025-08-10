@@ -11,10 +11,10 @@ const Menu = ({ items }: MenuProps) => {
           return (
             <div
               key={idx}
-              className="cursor-pointer text-4xl hover:text-orange-400 flex items-start gap-2"
+              className="menu-item cursor-pointer text-4xl hover:text-orange-400 flex items-start gap-2 overflow-hidden"
             >
               <sup className="text-sm text-orange-400 font-bold">[{indexLabel}]</sup>
-              <span>{item}</span>
+              <span className="block">{item}</span>
             </div>
           );
         })}
