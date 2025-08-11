@@ -1,5 +1,12 @@
+import { Link } from "react-router-dom";
+
+interface MenuItem {
+  label: string;
+  route: string;
+}
+
 interface MenuProps {
-  items: string[];
+  items: MenuItem[];
 }
 
 const Menu = ({ items }: MenuProps) => {
@@ -9,13 +16,14 @@ const Menu = ({ items }: MenuProps) => {
         {items.map((item, idx) => {
           const indexLabel = (idx + 1).toString().padStart(2, "0");
           return (
-            <div
+            <Link
               key={idx}
-              className="menu-item cursor-pointer text-4xl hover:text-orange-400 flex items-start gap-2 overflow-hidden"
+              to={item.route}
+              className="menu-item cursor-pointer text-4xl hover:text-orange-400 flex items-start gap-2 overflow-hidden transition-colors"
             >
               <sup className="text-sm text-orange-400 font-bold">[{indexLabel}]</sup>
-              <span className="block">{item}</span>
-            </div>
+              <span className="block">{item.label}</span>
+            </Link>
           );
         })}
       </div>

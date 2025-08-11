@@ -2,24 +2,26 @@ import { Search, ShoppingCartIcon, Menu as MenuIcon, X } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import Menu from "../ui/Menu";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
+
   const Categories = [
-    "ALL ITEMS",
-    "TEES",
-    "HOODIES",
-    "JACKETS",
-    "LONGSLEEVES",
-    "BOTTOMS",
-    "ACCESSORIES",
+    { label: "ALL ITEMS", route: "/all-items" },
+    { label: "TEES", route: "/tees" },
+    { label: "HOODIES", route: "/hoodies" },
+    { label: "JACKETS", route: "/jackets" },
+    { label: "LONGSLEEVES", route: "/longsleeves" },
+    { label: "BOTTOMS", route: "/bottoms" },
+    { label: "ACCESSORIES", route: "/accessories" },
   ];
 
   const Drops = [
-    "New Arrivals",
-    "Limited Editions",
-    "Seasonal Drops",
-    "Collaborations",
-    "Exclusive Releases",
+    { label: "New Arrivals", route: "/drops/new-arrivals" },
+    { label: "Limited Editions", route: "/drops/limited-editions" },
+    { label: "Seasonal Drops", route: "/drops/seasonal" },
+    { label: "Collaborations", route: "/drops/collaborations" },
+    { label: "Exclusive Releases", route: "/drops/exclusive" },
   ];
 
 
@@ -190,8 +192,11 @@ const Navbar = () => {
         </div>
 
         {/* Logo */}
+        
         <div className="flex-shrink-0">
-          <img src="/logo.svg" alt="Logo" className="w-20 h-20" />
+          <Link to="/">
+            <img src="/logo.svg" alt="Logo" className="w-20 h-20" />
+          </Link>
         </div>
 
         {/* Right */}

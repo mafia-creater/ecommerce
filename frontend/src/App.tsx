@@ -1,23 +1,15 @@
-import { useState } from "react";
-import Hero from "./components/sections/Hero";
-import Navbar from "./components/sections/Navbar";
-import ProductGrid from "./components/ui/ProductGrid";
-import CategoryGrid from "./components/ui/CategoryGrid";
-import Footer from "./components/sections/Footer";
-import ParallaxWaves from "./components/ui/Wave";
-
+import { Route, Routes } from "react-router-dom";
+import AllTypes from "./pages/AllTypes";
+import HeroSection from "./components/sections/HeroSection";
 
 export const App = () => {
 
   return (
     <>
-      <Navbar />
-      <Hero />
-
-      <ProductGrid />
-      <CategoryGrid />
-      <Footer />
-
+    <Routes>
+      <Route path="/" element={<HeroSection />} />
+      <Route path="/all-items" element={<AllTypes />} />
+    </Routes>
 
     </>
   )
